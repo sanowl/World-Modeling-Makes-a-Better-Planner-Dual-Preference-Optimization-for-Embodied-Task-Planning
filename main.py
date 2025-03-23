@@ -6,15 +6,15 @@ import torch.optim as optim
 from torch.utils.data import Dataset, DataLoader
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import numpy as np
-import random
 from tqdm import tqdm
 from PIL import Image
 from dataclasses import dataclass
 from typing import List, Dict, Tuple, Optional, Union, Any
+import secrets
 
 # Set random seeds for reproducibility
 def set_seed(seed: int = 42):
-    random.seed(seed)
+    secrets.SystemRandom().seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
     torch.cuda.manual_seed_all(seed)
